@@ -2,7 +2,7 @@ import streamlit as st
 import google.generativeai as genai
 
 # --- Page Setup ---
-st.set_page_config(page_title="STAR Answer Formatter & Evaluator", layout="centered")
+st.set_page_config(page_title="STAR Answer Formatter & Evaluator - Mudassar Hakim", layout="centered")
 
 st.title("🌟 STAR Interview Answer Formatter")
 st.markdown("""

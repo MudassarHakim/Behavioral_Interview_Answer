@@ -62,27 +62,42 @@ Respond using the format above to help clarify the candidate's response and high
         if eval_clicked and answer:
             with st.spinner("Scoring your answer..."):
                 eval_prompt = f"""
-You are a senior hiring manager. Score the following behavioral answer using the criteria below.
+You are a senior hiring manager tasked with evaluating a behavioral interview response. Please evaluate the following candidate answer based on the scoring criteria outlined below.
 
 Answer:
 {answer}
 
-Evaluation Criteria (score from 1 to 5 for each):
-1. Situation clarity
-2. Task clarity
-3. Actions taken (leadership, initiative)
-4. Results (impact, metrics)
-5. Alignment with Engineering Manager role
-6. Communication clarity
+### Evaluation Criteria
+Please assign a score from 1 to 5 for each of the following areas, along with a brief comment justifying your score:
 
-Respond like this:
-- Situation: score (1-5) + comment
-- Task: score + comment
-- Action: score + comment
-- Result: score + comment
-- Alignment: score + comment
-- Clarity: score + comment
-- Overall Score: X/30
+1. **Situation Clarity**  
+   - Score (1-5):  
+   - Comments:
+
+2. **Task Clarity**  
+   - Score (1-5):  
+   - Comments:
+
+3. **Actions Taken** (leadership, initiative)  
+   - Score (1-5):  
+   - Comments:
+
+4. **Results** (impact, metrics)  
+   - Score (1-5):  
+   - Comments:
+
+5. **Alignment with Engineering Manager Role**  
+   - Score (1-5):  
+   - Comments:
+
+6. **Communication Clarity**  
+   - Score (1-5):  
+   - Comments:
+
+### Final Assessment
+- **Overall Score**: X / 30
+
+Please ensure that your feedback is concise and constructive, focusing on specific strengths and areas for improvement in the candidate's response.
 """
                 eval_response = model.generate_content(eval_prompt)
                 st.markdown("### 🧾 Evaluation Scorecard")

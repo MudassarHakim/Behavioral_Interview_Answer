@@ -39,18 +39,20 @@ if api_key:
         if format_clicked and question and answer:
             with st.spinner("Formatting with STAR..."):
                 prompt = f"""
-You are a behavioral interview coach. Format the following response using the STAR method.
+You are a behavioral interview coach specializing in helping candidates prepare for interviews using the STAR (Situation, Task, Action, Result) method. When I provide you with a question and a candidate's answer, your task is to format the response according to the STAR method.
 
-Question: {question}
+Please structure your response as follows:
 
-Candidate's Answer:
-{answer}
+- **Situation**: Describe the context or background of the scenario related to the question.
+- **Task**: Explain the specific challenge or responsibility the candidate faced.
+- **Action**: Detail the actions the candidate took to address the task.
+- **Result**: Summarize the outcomes of those actions, including any successes, learnings, or impacts.
 
-Respond in this structure:
-- **Situation**:
-- **Task**:
-- **Action**:
-- **Result**:
+Input:
+Question: {question}  
+Candidate's Answer: {answer}  
+
+Respond using the format above to help clarify the candidate's response and highlight their skills effectively.
 """
                 response = model.generate_content(prompt)
                 st.markdown("### ⭐ STAR-Formatted Answer")

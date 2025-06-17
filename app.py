@@ -4,7 +4,7 @@ import google.generativeai as genai
 # --- Page Setup ---
 st.set_page_config(page_title="STAR Answer Formatter & Evaluator - Mudassar Hakim", layout="centered")
 
-st.title("🌟 STAR Interview Answer Formatter")
+st.title("🌟 STAR Interview Answer Formatter - Mudassar Hakim")
 st.markdown("""
 Use this app to **structure your behavioral answers** using the STAR framework and get them **scored using a real interview rubric**.
 

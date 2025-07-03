@@ -39,21 +39,32 @@ if api_key:
         if format_clicked and question and answer:
             with st.spinner("Formatting with STAR..."):
                 prompt = f"""
-You are a behavioral interview coach specializing in helping candidates prepare for interviews using the STAR (Situation, Task, Action, Result) method. When I provide you with a question and a candidate's answer, your task is to format the response according to the STAR method.
+                You are a behavioral interview coach specializing in helping candidates prepare for interviews using the STAR (Situation, Task, Action, Result) method. When I provide you with a question and a candidate's answer, your task is to format the response according to the STAR method.
 
-Please structure your response as follows:
+                Please structure your response as follows:
 
-- **Situation**: Describe the context or background of the scenario related to the question.
-- **Task**: Explain the specific challenge or responsibility the candidate faced.
-- **Action**: Detail the actions the candidate took to address the task.
-- **Result**: Summarize the outcomes of those actions, including any successes, learnings, or impacts.
+                - **Situation**: Describe the context or background of the scenario related to the question.
+                - **Task**: Explain the specific challenge or responsibility the candidate faced.
+                - **Action**: Detail the actions the candidate took to address the task.
+                - **Result**: Summarize the outcomes of those actions, with a strong emphasis on **tangible, measurable results** such as:
+                  - % improvements
+                  - revenue or cost impact
+                  - time savings
+                  - user growth or satisfaction (e.g., NPS, CSAT)
+                  - system performance gains (e.g., latency, uptime)
+                  - team-level outcomes (e.g., attrition reduction, hiring velocity)
 
-Input:
-Question: {question}  
-Candidate's Answer: {answer}  
+                If such metrics are already present in the answer, **extract and highlight them clearly**.  
+                If the metrics are not explicitly mentioned, **infer reasonable, plausible metrics** based on the scenario and label them as _(estimated)_.
 
-Respond using the format above to help clarify the candidate's response and highlight their skills effectively.
-"""
+                ---
+
+                Input:
+                Question: {question}  
+                Candidate's Answer: {answer}  
+
+                Respond using the structure above to help clarify the candidate's response and emphasize outcome-driven thinking.
+                """
                 response = model.generate_content(prompt)
                 st.markdown("### ⭐ STAR-Formatted Answer")
                 st.write(response.text)
